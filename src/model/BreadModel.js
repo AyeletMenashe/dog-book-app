@@ -1,4 +1,4 @@
-class DogBreadModel{
+class BreadModel{
     constructor(id, image){
         this.id = id;
         this.image = image;
