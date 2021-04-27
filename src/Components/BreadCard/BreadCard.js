@@ -1,41 +1,35 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import './BreedCard.css';
-import { Link, Redirect, useHistory } from 'react-router-dom';
-import { Card } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import './BreedPage.css';
+import { Container} from 'react-bootstrap';
+import MasonryImages from './../../components/MasonryImages/MasonryImages';
 
-function BreedCard({breed, changeImage}) {
+export default function BreedPage() {
 
-    const [img, setImg] = useState("https://www.bil-jac.com/Images/DogPlaceholder.svg");
-    const [redirectTo, setRedirectTo] = useState("");
-    const history = useHistory()
+    const { breed } = useParams();
+    const [imgList, setImgList] = useState();
 
     const cardTitle=breed.charAt(0).toUpperCase() + breed.slice(1);
-        
-        
+    
     useEffect(() => {
-        axios.get("https://dog.ceo/api/breed/" + breed + "/images/random").then(res => {
-            const newImg = res.data.message;
-            setImg(newImg);
+        axios.get("https://dog.ceo/api/breed/" + breed + "/images").then(res => {
+            const imgs = res.data.message;
+            setImgList(imgs);
         });
 
-    },[breed, changeImage]);
+    },[breed]);
 
-    if (redirectTo) {
-        return <Redirect to={'/breeds/' + redirectTo}/>
-    } else {
-        return (
-            <Card className ="c-breedcard" >
-                <Card.Title style={{ display:'flex', justifyContent:'center'}}>
-                    <Link to={'/breeds/' + breed}>{cardTitle}</Link>
-                </Card.Title>
-                <img src={img} alt={breed} onClick={() => {
-                history.push('/breeds/' + breed);
-                setRedirectTo('/breeds/' + breed);
-            }} /> 
-            </Card>
-        );
-    }
+
+
+    return (
+        imgList ? <div className="p-breed">
+                    <div className="display-3 headline">{cardTitle}</div>
+                    <Container>
+                        <MasonryImages images={ imgList }></MasonryImages>
+                    </Container>                        
+                  </div> 
+                : 
+                  <div></div>
+    );
 }
-
-export default BreedCard;
