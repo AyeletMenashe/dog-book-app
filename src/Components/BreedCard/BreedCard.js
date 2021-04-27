@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import './BreedPage.css';
 import { Container} from 'react-bootstrap';
-import MasonryImages from './../../components/MasonryImages/MasonryImages';
+import MasonryImages from '../MasonryImages/MasonryImages';
 
 export default function BreedPage() {
 
