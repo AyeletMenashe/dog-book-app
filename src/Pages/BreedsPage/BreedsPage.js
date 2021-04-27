@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container} from 'react-bootstrap';
-import BreedMenuBar from './../../components/BreedMenuBar/BreedMenuBar';
+import BreedMenuBar from '../../components/BreedMenuBar/BreedMenuBar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import BreedModel from './../../model/BreedModel';
-import MasonryBreedCards from './../../components/MasonryBreedCards/MasonryBreedCards';
+import BreedModel from '../../model/BreedModel';
+import MasonryBreedCards from '../../components/MasonryBreedCards/MasonryBreedCards';
 
 function BreedsPage() {
 
