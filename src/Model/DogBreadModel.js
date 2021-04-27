@@ -1,7 +1,6 @@
 class DogBreadModel{
-    constructor(image, name, dogId){
+    constructor(id, image){
+        this.id = id;
         this.image = image;
-        this.name = name;
-        this.dogId = dogId;
     }
 }
