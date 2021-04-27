@@ -1,10 +1,10 @@
 import React from 'react';
 import {InputGroup, FormControl, Button, ButtonGroup, ButtonToolbar } from "react-bootstrap";
-import './BreedMenu.css'
+import './BreedMenuBar.css'
 
-export default function BreedMenu({filterText, handlerFilter, handleChangeImages}){
+export default function BreedMenuBar({filterText, handlerFilter, handleChangeImages}){
     return(
-        <div className="a-breeds-menu">
+        <div className="c-breeds-menu">
             <ButtonToolbar
                 className="justify-content-between"
                 aria-label="Toolbar with Button groups">
