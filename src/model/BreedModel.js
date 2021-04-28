@@ -1,6 +1,6 @@
-class BreedModel{
-    constructor(id, image){
+export default class BreedModel {
+    constructor(id, name) {
         this.id = id;
-        this.image = image;
+        this.name = name;
     }
 }
